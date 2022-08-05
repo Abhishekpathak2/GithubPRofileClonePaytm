@@ -40,6 +40,7 @@ class RepoTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        
         }
 }
 

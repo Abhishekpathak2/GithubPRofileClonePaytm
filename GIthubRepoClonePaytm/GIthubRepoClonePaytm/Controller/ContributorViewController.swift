@@ -18,7 +18,7 @@ class ContributorViewController: UIViewController, UITableViewDelegate, UITableV
     let userData = GitUserProfileViewModel(apiFetch: apiFetch)
     var contributorViewModel=ContributorViewModel(apiFetch:apiFetch)
     var usernamesee:String = "leondz"
-    
+    var selectedIndex = -1
     override func viewDidLoad() {
         //MARK: Delegates
         contributorViewModel.delegate=self
@@ -102,6 +102,7 @@ extension ContributorViewController{
         
         usernamesee=self.contributorViewModel.contributorData[indexPath.row].login
         userData.fetchUser(user: usernamesee)
+        
         contributorsTableView.deselectRow(at: indexPath, animated: true)
     }
     
@@ -117,6 +118,16 @@ extension ContributorViewController{
         
         let cell = contributorsTableView.dequeueReusableCell(withIdentifier: ContributorsTableViewCell.identifier, for: indexPath) as! ContributorsTableViewCell
         cell.configure(with: contributorViewModel.contributorData[indexPath.row])
+        
+        cell.layer.masksToBounds = true
+        cell.layer.cornerRadius = 25
+        cell.layer.borderWidth = 0.5
+        cell.layer.shadowOffset = CGSize(width: -1, height: 1)
+        let borderColor=UIColor.systemMint
+        cell.layer.borderColor = borderColor.cgColor
+        cell.selectionStyle = .none
+        cell.backgroundColor=UIColor.white
+        
         return cell
     }
 }

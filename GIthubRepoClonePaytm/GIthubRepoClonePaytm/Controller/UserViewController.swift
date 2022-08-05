@@ -27,7 +27,7 @@ class UserViewController: UIViewController, UITableViewDelegate, UITableViewData
     let UserRepoModel=UserRepoViewModel(apiFetch: apiFetch)
     var username:String=""
     var contributor:ContributorModel?
-    
+    var selectedIndex = -1
     //MARK: Activity Indicator VAriables
     var actView: UIView = UIView()
     var loadingView: UIView = UIView()
@@ -35,6 +35,11 @@ class UserViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        SegmentController.layer.borderWidth = 1.0
+        SegmentController.layer.cornerRadius = 5.0
+        SegmentController.layer.borderColor = UIColor.red.cgColor
+        SegmentController.layer.masksToBounds = true
+       
         //MARK: Delegates
         UserViewModel.delegate=self
         UserRepoModel.delegate=self
@@ -55,7 +60,6 @@ class UserViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         //MARK: HeaderSet
         MainTableViewController.tableHeaderView=headerView
-        
         //MARK: collectionView Code
         collectionViewUser.register(userCollectionViewCell.nib(), forCellWithReuseIdentifier: userCollectionViewCell.identifier)
         collectionViewUser.dataSource=self
@@ -67,7 +71,6 @@ class UserViewController: UIViewController, UITableViewDelegate, UITableViewData
         MainTableViewController.dataSource=self
         
     }
-    
     //MARK: Protocols
     
     func didFinishFetchingRepoData() {
@@ -124,9 +127,15 @@ extension UserViewController {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return dataArray.count
     }
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.selectedIndex =  indexPath.row
+        collectionView.reloadData()
+        collectionView.deselectItem(at: indexPath, animated: true)
+    }
+ 
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: userCollectionViewCell.identifier, for: indexPath as IndexPath) as! userCollectionViewCell
         if indexPath.row == 0 {
             cell.configure(dataName: dataArray[indexPath.row], dataCount: UserViewModel.userData.public_repos ?? 0)
@@ -136,6 +145,14 @@ extension UserViewController {
             cell.configure(dataName: dataArray[indexPath.row], dataCount: UserViewModel.userData.following ?? 0)
         }else{
             cell.configure(dataName: dataArray[indexPath.row], dataCount: ((UserViewModel.userData.public_repos!+UserViewModel.userData.followers!+UserViewModel.userData.following!)/4))
+        }
+        if selectedIndex == indexPath.row {
+            cell.layer.cornerRadius=25
+            cell.backgroundColor =  UIColor.tertiarySystemFill
+         }
+        else{
+            cell.layer.cornerRadius=0
+            cell.backgroundColor = UIColor.systemBackground
         }
         return cell
     }
@@ -189,7 +206,15 @@ extension UserViewController{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = MainTableViewController.dequeueReusableCell(withIdentifier: RepoTableViewCell.identifier, for: indexPath) as! RepoTableViewCell
         cell.configure(with: UserRepoModel.repoData[indexPath.row])
+        cell.layer.masksToBounds = true
+        cell.layer.cornerRadius = 20
+        cell.layer.borderWidth = 0.5
+        cell.layer.shadowOffset = CGSize(width: 4, height: 1)
+        let borderColor=UIColor.systemMint
+        cell.layer.borderColor = borderColor.cgColor
         cell.selectionStyle = .none
+        cell.backgroundColor=UIColor.systemBackground
+        
         return cell
         
     }
@@ -304,6 +329,5 @@ extension UIImageView {
       }
     }
 }
-
 
 

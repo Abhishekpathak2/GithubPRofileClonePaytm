@@ -348,24 +348,24 @@
                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <segmentedControl contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Taw-9t-ysG">
+                        <segmentedControl contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Taw-9t-ysG">
                             <rect key="frame" x="0.0" y="44" width="240" height="85"/>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <segments>
                                 <segment title="Repositories"/>
                                 <segment title="PinnedRepositories"/>
                             </segments>
-                            <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="tintColor" systemColor="systemBackgroundColor"/>
                             <color key="selectedSegmentTintColor" red="0.24313725490196078" green="0.70588235294117641" blue="0.53725490196078429" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </segmentedControl>
                     </subviews>
                     <viewLayoutGuide key="safeArea" id="kib-Jf-PPN"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
+                        <constraint firstItem="kib-Jf-PPN" firstAttribute="bottom" secondItem="Taw-9t-ysG" secondAttribute="bottom" id="9vt-go-WFa"/>
                         <constraint firstItem="Taw-9t-ysG" firstAttribute="top" secondItem="kib-Jf-PPN" secondAttribute="top" id="B1J-WU-iwg"/>
                         <constraint firstItem="kib-Jf-PPN" firstAttribute="trailing" secondItem="Taw-9t-ysG" secondAttribute="trailing" id="VQN-yF-jL0"/>
                         <constraint firstItem="Taw-9t-ysG" firstAttribute="leading" secondItem="kib-Jf-PPN" secondAttribute="leading" id="l1B-Tf-qL7"/>
-                        <constraint firstItem="kib-Jf-PPN" firstAttribute="bottom" secondItem="Taw-9t-ysG" secondAttribute="bottom" id="mfP-ER-VZc"/>
                     </constraints>
                 </view>
             </objects>
