@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="collectionViewCell" id="gTV-IL-0wX" customClass="userCollectionViewCell" customModule="GIthubRepoClonePaytm" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="150" height="97"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="150" height="97"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="eMP-Wu-l2t">
+                        <rect key="frame" x="0.0" y="0.0" width="150" height="97"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="dataCount" textAlignment="center" lineBreakMode="characterWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4rq-Yl-Bur">
+                                <rect key="frame" x="0.0" y="0.0" width="150" height="48.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="dataName" textAlignment="center" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="YBm-01-Cc8">
+                                <rect key="frame" x="0.0" y="48.5" width="150" height="48.5"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                    </stackView>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="eMP-Wu-l2t" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="1ZY-2f-oG8"/>
+                <constraint firstAttribute="trailing" secondItem="eMP-Wu-l2t" secondAttribute="trailing" id="IjU-Kn-hKt"/>
+                <constraint firstAttribute="bottom" secondItem="eMP-Wu-l2t" secondAttribute="bottom" id="M2O-yY-Vh0"/>
+                <constraint firstItem="eMP-Wu-l2t" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="WuU-s1-MWJ"/>
+            </constraints>
+            <connections>
+                <outlet property="dataCountLabel" destination="4rq-Yl-Bur" id="ElE-qJ-1KW"/>
+                <outlet property="dataNameLabel" destination="YBm-01-Cc8" id="yy1-As-ndv"/>
+            </connections>
+            <point key="canvasLocation" x="131.8840579710145" y="11.049107142857142"/>
+        </collectionViewCell>
+    </objects>
+</document>
